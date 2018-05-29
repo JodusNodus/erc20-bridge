@@ -26,7 +26,7 @@ https://hackmd.io/s/rJDPfbZUG
 
 # install / run / test
 
-`npm i -g truffle`
+`npm i -g truffle@4.1.6` ( Solidity v0.4.21 is required by the ERC777 )
 
 `truffle test`
 
