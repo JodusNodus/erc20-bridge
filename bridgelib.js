@@ -1,4 +1,4 @@
-const sha3 = require('web3/lib/utils/sha3.js');
+const sha3 = require('web3-utils').sha3;
 const sha256 = require('js-sha256').sha256;
 const Tx = require('ethereumjs-tx');
 const ethUtil = require('ethereumjs-util');
