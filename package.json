@@ -15,7 +15,7 @@
 		"bignumber.js": "^7.2.1",
 		"eip820": "0.0.20",
 		"erc777": "^0.1.1",
-		"ethereumjs-tx": "^1.3.3",
+		"ethereumjs-tx": "^1.3.4",
 		"ethereumjs-util": "^5.1.3",
 		"ganache-cli": "^6.0.3",
 		"giveth-common-contracts": "^0.6.0",
