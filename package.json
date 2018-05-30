@@ -12,7 +12,6 @@
 	"author": "",
 	"license": "MIT",
 	"dependencies": {
-		"web3": "^1.0.0-beta.34",
 		"bignumber.js": "^7.2.1",
 		"eip820": "0.0.20",
 		"erc777": "^0.1.1",
@@ -24,6 +23,8 @@
 		"keythereum": "^1.0.2",
 		"openzeppelin-solidity": "^1.9.0",
 		"truffle": "4.1.6",
-		"truffle-flattener": "^1.2.3"
+		"truffle-flattener": "^1.2.3",
+		"truffle-privatekey-provider": "^0.1.0",
+		"web3": "^1.0.0-beta.34"
 	}
 }

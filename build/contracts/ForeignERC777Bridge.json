@@ -10000,7 +10000,258 @@
     "name": "solc",
     "version": "0.4.21+commit.dfe3193c.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "3": {
+      "events": {
+        "0x249a90802e9a26d497266eb15062d7f4c84526abd5f12e1355ccb6096eb9f717": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "_withdrawhash",
+              "type": "bytes32"
+            }
+          ],
+          "name": "WithdrawRequest",
+          "type": "event"
+        },
+        "0xdffbd9ded1c09446f09377de547142dcce7dc541c8b0b028142b1eba7026b9e7": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_mainToken",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_sideToken",
+              "type": "address"
+            }
+          ],
+          "name": "TokenAdded",
+          "type": "event"
+        },
+        "0xf3cb92530a4d68d8fb2e7d9da067eb3682b11b4e34228a94d3cae1d9d1837062": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_mintRequestsHash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "name": "_transactionHash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "name": "_mainToken",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_recipient",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "_requiredSignatures",
+              "type": "uint8"
+            },
+            {
+              "indexed": false,
+              "name": "_signatureCount",
+              "type": "uint8"
+            }
+          ],
+          "name": "MintRequestSigned",
+          "type": "event"
+        },
+        "0x2044011f3778ccb7a2f0837530cd9496e82534210c4514636389063db341931a": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_mintRequestsHash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "name": "_transactionHash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "name": "_mainToken",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_recipient",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "MintRequestExecuted",
+          "type": "event"
+        },
+        "0xb82025481ac2a3b54e840dee094ec9cc1ca34cfad2ed18439daaab27cac4223c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_withdrawRequestsHash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "name": "_transactionHash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "name": "_mainToken",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_recipient",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_amount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "_withdrawBlock",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "_signer",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "_v",
+              "type": "uint8"
+            },
+            {
+              "indexed": false,
+              "name": "_r",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "name": "_s",
+              "type": "bytes32"
+            }
+          ],
+          "name": "WithdrawRequestSigned",
+          "type": "event"
+        },
+        "0xc7f60bc9b5f3c5f7ae6a5703d3a0356651abdc374f1a2f5b40506eca3283c207": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_withdrawRequestsHash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "name": "_reward",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "_v",
+              "type": "uint8"
+            },
+            {
+              "indexed": false,
+              "name": "_r",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "name": "_s",
+              "type": "bytes32"
+            }
+          ],
+          "name": "WithdrawRequestRewardSigned",
+          "type": "event"
+        },
+        "0xe366c1c0452ed8eec96861e9e54141ebff23c9ec89fe27b996b45f5ec3884987": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "validator",
+              "type": "address"
+            }
+          ],
+          "name": "ValidatorAdded",
+          "type": "event"
+        },
+        "0xe1434e25d6611e0db941968fdc97811c982ac1602e951637d206f5fdda9dd8f1": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "validator",
+              "type": "address"
+            }
+          ],
+          "name": "ValidatorRemoved",
+          "type": "event"
+        },
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x9a36b73ed41851a87697b17b9b6a7dd96358c83e",
+      "transactionHash": "0x3c031a34fd201a0836d0dc59f02ca5c4e106bd4064a9d7b4be87fd059e309624"
+    }
+  },
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-05-29T12:21:14.183Z"
+  "updatedAt": "2018-05-30T11:41:02.864Z"
 }
