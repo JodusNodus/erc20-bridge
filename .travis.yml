@@ -15,9 +15,15 @@ node_js:
 before_install:
   - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > ~/.npmrc
   - npm i -g npm@latest
+  - npm i -g ganache-cli truffle
 
 install:
   - npm ci
+
+script:
+  - npm run test
+  - ganache -m 'robot robot robot robot robot robot robot robot robot robot robot robot' -l 0xfffffffffff -id 1234 > testrpc.log &
+  - truffle migrate
 
 deploy:
   provider: script
@@ -26,4 +32,4 @@ deploy:
     - npm run semantic-release
   on:
     branch: master
-    repo: databrokerdao/erc20-bridge
+    repo: DataBrokerDAO/erc20-bridge
