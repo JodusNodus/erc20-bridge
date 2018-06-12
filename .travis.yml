@@ -2,20 +2,28 @@ language: node_js
 
 cache:
   directories:
-    - node_modules
+    - "˜/.npm"
+
+notifications:
+  slack:
+    rooms:
+      - settlemint:5QuOPa3Z4kJbfbNIgei0asur#mint
 
 node_js:
-  - '9.11'
+  - '9'
 
 before_install:
-  - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
   - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > ~/.npmrc
+  - npm i -g npm@latest
 
 install:
-  - npm install
+  - npm ci
 
-script:
-  - npm test
-
-after_success:
-  - npm run semantic-release
+deploy:
+  provider: script
+  skip_cleanup: true
+  script:
+    - npm run semantic-release
+  on:
+    branch: master
+    repo: databrokerdao/erc20-bridge
