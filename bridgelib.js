@@ -19,7 +19,7 @@ module.exports = (config) => {
 	}
 
 	// main -> side
-	utility.signMintRequest = function(txHash, tokenAddress, tokenOwner, tokenAmount, validatorPK) {
+	utility.createMintRequest = function(txHash, tokenAddress, tokenOwner, tokenAmount) {
 		const condensed = utility.pack(
 			[
 				txHash,
@@ -27,8 +27,27 @@ module.exports = (config) => {
 				tokenOwner,
 				tokenAmount
 			], [256, 160, 160, 256]);
-		const hash = sha256(new Buffer(condensed, 'hex'));
+		//const hash = sha256(new Buffer(condensed, 'hex'));
+		return (sha256(new Buffer(condensed, 'hex')));
+		//return utility.simpleSign(hash, validatorPK);
+	};
+
+	utility.signMintRequest = function(txHash, tokenAddress, tokenOwner, tokenAmount, validatorPK) {
+		const hash = utility.createMintRequest(txHash, tokenAddress, tokenOwner, tokenAmount);
 		return utility.simpleSign(hash, validatorPK);
+	};
+
+	// create unique hash for this bridge request & for this signer
+	// used to verify if this signer has already signed a bridge
+	// request
+	utility.createSignRequestHash = function(txHash, signer) {
+		const condensed = utility.pack(
+			[
+				txHash,
+				signer,
+			], [256, 160]);
+		const hash = sha256(new Buffer(condensed, 'hex'));
+		return `0x${hash.toString('hex')}`;
 	};
 
 	utility.createWithdrawRequestHash = function(tokenAddress, tokenOwner, tokenAmount, withdrawBlock) {
@@ -47,16 +66,16 @@ module.exports = (config) => {
 		return utility.simpleSign(hash, validatorPK);
 	};
 
-	utility.signReward = function(withdrawRequestHash,tokenAddress, tokenOwner, tokenAmount, withdrawBlock, tokenReward, tokenOwnerPK) {
+	utility.signReward = function(withdrawRequestHash, tokenAddress, tokenOwner, tokenAmount, withdrawBlock, tokenReward, tokenOwnerPK) {
 		condensed = utility.pack(
 			[
-        withdrawRequestHash,
+				withdrawRequestHash,
 				tokenAddress,
 				tokenOwner,
 				tokenAmount,
 				withdrawBlock,
 				tokenReward,
-			], [256,160, 160, 256, 256, 256]);
+			], [256, 160, 160, 256, 256, 256]);
 		const hash = sha256(new Buffer(condensed, 'hex'));
 		return utility.simpleSign(hash, tokenOwnerPK);
 	};
