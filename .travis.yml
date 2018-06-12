@@ -22,7 +22,7 @@ install:
 
 script:
   - npm run test
-  - ganache -m 'robot robot robot robot robot robot robot robot robot robot robot robot' -l 0xfffffffffff -id 1234 > testrpc.log &
+  - ganache-cli -m 'robot robot robot robot robot robot robot robot robot robot robot robot' -l 0xfffffffffff -id 1234 > testrpc.log &
   - truffle migrate
 
 deploy:
