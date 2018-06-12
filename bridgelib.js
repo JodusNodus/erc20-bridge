@@ -27,10 +27,8 @@ module.exports = (config) => {
 				tokenOwner,
 				tokenAmount
 			], [256, 160, 160, 256]);
-		//const hash = sha256(new Buffer(condensed, 'hex'));
 		return (sha256(new Buffer(condensed, 'hex')));
-		//return utility.simpleSign(hash, validatorPK);
-	};
+s	};
 
 	utility.signMintRequest = function(txHash, tokenAddress, tokenOwner, tokenAmount, validatorPK) {
 		const hash = utility.createMintRequest(txHash, tokenAddress, tokenOwner, tokenAmount);
