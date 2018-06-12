@@ -4,15 +4,15 @@ const path = require('path');
 const ownerfilename = path.join(__dirname, 'scripts/owner.json');
 
 function getNetworks() {
-	var ownerAccount = null;
-	if (fs.existsSync(ownerfilename)) {
-		ownerAccount = require(ownerfilename);
-	}
-	if (!ownerAccount){
-		console.error('please run scripts/mkaccounts.sh to create a set of keys for all actors of the bridge');
-		console.error('No owner account found. Bailing out');
-		process.exit();
-	}
+	// var ownerAccount = null;
+	// if (fs.existsSync(ownerfilename)) {
+	// 	ownerAccount = require(ownerfilename);
+	// }
+	// if (!ownerAccount){
+	// 	console.error('please run scripts/mkaccounts.sh to create a set of keys for all actors of the bridge');
+	// 	console.error('No owner account found. Bailing out');
+	// 	process.exit();
+	// }
 	const networks = {
 		development: {
 			host: "localhost",
