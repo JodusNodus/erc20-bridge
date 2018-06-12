@@ -23,12 +23,12 @@ contract('SampleERC20/ERC777', (accounts) => {
 	// the HomeERC20Bridge contract
 	let homeERC20Bridge;
 	const requiredValidators = 3;
-
+	f.signmin
 	// Alice : the sender
 	let alicePublic; // = accounts[3];
 	let alicePrivate; // = accounts[3];
 	let aliceAmount = 1e18;
-	let aliceReward = 1;	// amount of tokens offered as reward for withdrawal
+	let aliceReward = 1; // amount of tokens offered as reward for withdrawal
 
 	// SIDECHAIN
 	// the ForeignERC777Bridge contract
@@ -146,23 +146,23 @@ contract('SampleERC20/ERC777', (accounts) => {
 			});
 		});
 
-		it("creates the Sidechain token", async () => {
-			const name = await homeToken.name();
-			const symbol = await homeToken.symbol();
+		// it("creates the Sidechain token", async () => {
+		// 	const name = await homeToken.name();
+		// 	const symbol = await homeToken.symbol();
 
-			sidechainToken = await SidechainToken.new(foreignERC777Bridge.address, name, symbol, 1, {
-				from: bridgeOwner,
-			});
+		// 	sidechainToken = await SidechainToken.new(foreignERC777Bridge.address, name, symbol, 1, {
+		// 		from: bridgeOwner,
+		// 	});
 
-			// set the ownership of the token to the bridge - otherwise we cannot mint tokens.. :(
-			await sidechainToken.transferOwnership(foreignERC777Bridge.address, {
-				from: bridgeOwner,
-			});
-		});
+		// 	// set the ownership of the token to the bridge - otherwise we cannot mint tokens.. :(
+		// 	await sidechainToken.transferOwnership(foreignERC777Bridge.address, {
+		// 		from: bridgeOwner,
+		// 	});
+		// });
 
 		it("registers the mapping from main->sidechain token", async () => {
 			//console.log('added mapping', homeToken.address, '=>', sidechainToken.address);
-			await foreignERC777Bridge.registerToken(homeToken.address, sidechainToken.address, {
+			await foreignERC777Bridge.registerToken(homeToken.address, {
 				from: bridgeOwner,
 			});
 		});
@@ -208,7 +208,7 @@ contract('SampleERC20/ERC777', (accounts) => {
 		// the last one to sign automatically mints the tokens.
 		it("sign & mint token on sidechain", async () => {
 			for (let i = 0; i < requiredValidators + 1; i++) {
-				let validatorSignature = utility.signMintRequest(mintingHash,homeToken.address,alicePublic,aliceAmount,validators[i].private);
+				let validatorSignature = utility.signMintRequest(mintingHash, homeToken.address, alicePublic, aliceAmount, validators[i].private);
 				let t = await foreignERC777Bridge.signMintRequest(mintingHash, homeToken.address, alicePublic, aliceAmount, validatorSignature.v, validatorSignature.r, validatorSignature.s);
 			}
 		});
@@ -272,10 +272,10 @@ contract('SampleERC20/ERC777', (accounts) => {
 
 			for (let i = 0; i < requiredValidators + 1; i++) {
 
-				var validatorSignature = utility.signWithdrawRequest(homeToken.address,alicePublic,aliceAmount,0,validators[i].private);
+				var validatorSignature = utility.signWithdrawRequest(homeToken.address, alicePublic, aliceAmount, 0, validators[i].private);
 
 				// announce validator's signature through the sidechain bridge
-				let t = await foreignERC777Bridge.signWithdrawRequest(withdrawHash, homeToken.address, alicePublic, aliceAmount, 0,  validatorSignature.v, validatorSignature.r, validatorSignature.s);
+				let t = await foreignERC777Bridge.signWithdrawRequest(withdrawHash, homeToken.address, alicePublic, aliceAmount, 0, validatorSignature.v, validatorSignature.r, validatorSignature.s);
 
 				collectedSignatures.push(t.logs[0].args);
 			}
@@ -294,10 +294,10 @@ contract('SampleERC20/ERC777', (accounts) => {
 			// const withdrawRequestsHash = sha256(new Buffer(condensed, 'hex'));
 
 
-			const withdrawRequestsHash = utility.createWithdrawRequestHash(homeToken.address,alicePublic,aliceAmount,0);
+			const withdrawRequestsHash = utility.createWithdrawRequestHash(homeToken.address, alicePublic, aliceAmount, 0);
 
 			// we'll need this later..
-			rewardSignature = utility.signReward(withdrawRequestsHash,homeToken.address,alicePublic,aliceAmount,0,aliceReward,alicePrivate);
+			rewardSignature = utility.signReward(withdrawRequestsHash, homeToken.address, alicePublic, aliceAmount, 0, aliceReward, alicePrivate);
 
 			// condensed = utility.pack(
 			// 	[

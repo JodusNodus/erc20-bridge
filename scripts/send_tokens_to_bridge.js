@@ -33,31 +33,35 @@ module.exports = function(callback) {
 
 	const privateKey = Buffer.from(alice.private, 'hex');
 
-	const txParams = {
-		to: inputconfig.hometoken.address,
-		data: data,
-		//gas: 150000,
-		from: alice.public,
-		//nonce: 0,
-	};
 
-	console.log(txParams);
+	tempweb3.eth.getTransactionCount(alice.public).then((nonce) => {
+		const txParams = {
+			to: inputconfig.hometoken.address,
+			data: data,
+			gas: 150000,
+			gasPrice: 1e9,
+			from: alice.public,
+			nonce: nonce,
+		};
 
-	const tx = new EthereumTx(txParams);
-	tx.sign(privateKey);
-	const serializedTx = tx.serialize();
+		console.log(txParams);
 
-	//	console.log('serializedTx', serializedTx);
+		const tx = new EthereumTx(txParams);
+		tx.sign(privateKey);
+		const serializedTx = tx.serialize();
 
-	//tempweb3 = new Web3("https://ropsten.infura.io/U8U4n8mm2wDgB2e3Dksv");
+		console.log('serializedTx', serializedTx.toString('hex'));
 
-	tempweb3.eth.sendSignedTransaction(serializedTx, function(err, tx) {
-		if (err) {
-			console.log(err);
-		} else {
-			console.log('tx', tx);
-		}
+		tempweb3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex'), function(err, tx) {
+			if (err) {
+				console.log(err);
+			} else {
+				console.log('tx', tx);
+			}
 
+		});
 	});
+
+
 };
 //
