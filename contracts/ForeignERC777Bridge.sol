@@ -4,8 +4,6 @@ import 'erc777/contracts/examples/ReferenceToken.sol';
 import 'openzeppelin-solidity/contracts/ownership/Ownable.sol';
 import 'openzeppelin-solidity/contracts/token/ERC20/DetailedERC20.sol';
 import './Validatable.sol';
-import './Bridgeable.sol';
-import './SidechainToken.sol';
 
 contract ForeignERC777Bridge is Ownable, Validatable {
 
@@ -37,17 +35,22 @@ contract ForeignERC777Bridge is Ownable, Validatable {
 
 	function registerToken(DetailedERC20 _mainToken) public onlyOwner {
 		assert(tokenMap[_mainToken] == 0);
-		SidechainToken t = new SidechainToken(this,'Bridged Token','BTOK',uint256(_mainToken.decimals()));
+		ReferenceToken t = new ReferenceToken('Bridged Token','BTOK',1);
+		assert(t.owner() == address(this));
+		//t.transferOwnership(this);
 		tokenMap[_mainToken] = t;
-		emit TokenAdded(_mainToken,t);
+		emit TokenAdded(_mainToken,address(t));
 	}
 
 	function signMintRequest(bytes32 _transactionHash,address _mainToken, address _recipient,uint256 _amount,uint8 _v, bytes32 _r, bytes32 _s) public {
 		bytes32 mintRequestsHash = sha256(_transactionHash,_mainToken,_recipient,_amount);
-		bytes32 signRequestHash = sha256(mintRequestsHash,msg.sender);
+		address validator = ecrecover(mintRequestsHash, _v, _r, _s);
+		assert(isValidator(validator));
+
+		bytes32 signRequestHash = sha256(mintRequestsHash,validator);
 		assert(signRequestsDone[signRequestHash] != true);
+		
 		signRequestsDone[signRequestHash] = true;
-		assert(isValidator(ecrecover(mintRequestsHash, _v, _r, _s)));
 		mintRequests[mintRequestsHash]++;
 		if (mintRequests[mintRequestsHash] < requiredValidators){
 			emit MintRequestSigned(mintRequestsHash,_transactionHash, _mainToken,  _recipient, _amount,requiredValidators,mintRequests[mintRequestsHash],signRequestHash);
@@ -56,7 +59,7 @@ contract ForeignERC777Bridge is Ownable, Validatable {
 			assert(tokenMap[_mainToken] != 0x0);
 			mintRequestsDone[mintRequestsHash] = true;
 			emit MintRequestExecuted(mintRequestsHash,_transactionHash, tokenMap[_mainToken],  _recipient, _amount);
-			SidechainToken(tokenMap[_mainToken]).mintFromBridge(_recipient,_amount,'');
+			ReferenceToken(tokenMap[_mainToken]).mint(_recipient,_amount,'');
 		}
 	}
 

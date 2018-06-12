@@ -19,17 +19,17 @@ function getNetworks() {
 			port: 8545,
 			network_id: "*" // Match any network id
 		},
-		ropsten: {
-			provider: ownerAccount ? new PrivateKeyProvider(ownerAccount.private, "https://ropsten.infura.io/U8U4n8mm2wDgB2e3Dksv") : null,
-			network_id: 3,
-			//gas: 1828127,
-			myvar: 123,
-		},
-		mainnet: {
-			provider: ownerAccount ? new PrivateKeyProvider(ownerAccount.private, "https://mainnet.infura.io/U8U4n8mm2wDgB2e3Dksv") : null,
-			network_id: 1,
-			//gas: 1828127,
-		},
+		// ropsten: {
+		// 	provider: ownerAccount ? new PrivateKeyProvider(ownerAccount.private, "https://ropsten.infura.io/U8U4n8mm2wDgB2e3Dksv") : null,
+		// 	network_id: 3,
+		// 	//gas: 1828127,
+		// 	myvar: 123,
+		// },
+		// mainnet: {
+		// 	provider: ownerAccount ? new PrivateKeyProvider(ownerAccount.private, "https://mainnet.infura.io/U8U4n8mm2wDgB2e3Dksv") : null,
+		// 	network_id: 1,
+		// 	//gas: 1828127,
+		// },
 	    coverage: {
 	      host: "localhost",
 	      network_id: "*",
