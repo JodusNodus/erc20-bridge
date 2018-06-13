@@ -14,13 +14,13 @@ node_js:
 
 before_install:
   - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > ~/.npmrc
-  - npm i -g npm@latest
   - npm i -g truffle@4.1.6
 
 install:
   - npm ci
 
 script:
+  - truffle version
   - truffle test
 
 deploy:
