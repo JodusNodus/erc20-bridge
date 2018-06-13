@@ -94,17 +94,17 @@
     "absolutePath": "eip820/contracts/ERC820Implementer.sol",
     "exportedSymbols": {
       "ERC820Implementer": [
-        2631
+        1065
       ],
       "ERC820Registry": [
-        2568
+        1002
       ]
     },
-    "id": 2632,
+    "id": 1066,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2535,
+        "id": 969,
         "literals": [
           "solidity",
           "^",
@@ -120,9 +120,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 2568,
+        "id": 1002,
         "linearizedBaseContracts": [
-          2568
+          1002
         ],
         "name": "ERC820Registry",
         "nodeType": "ContractDefinition",
@@ -130,7 +130,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2542,
+            "id": 976,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -138,15 +138,15 @@
             "name": "getManager",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2538,
+              "id": 972,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2537,
+                  "id": 971,
                   "name": "addr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2542,
+                  "scope": 976,
                   "src": "76:12:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -155,7 +155,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2536,
+                    "id": 970,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "76:7:5",
@@ -172,15 +172,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2541,
+              "id": 975,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2540,
+                  "id": 974,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2542,
+                  "scope": 976,
                   "src": "110:7:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -189,7 +189,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2539,
+                    "id": 973,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "110:7:5",
@@ -204,7 +204,7 @@
               ],
               "src": "109:9:5"
             },
-            "scope": 2568,
+            "scope": 1002,
             "src": "56:63:5",
             "stateMutability": "view",
             "superFunction": null,
@@ -213,7 +213,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2549,
+            "id": 983,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -221,15 +221,15 @@
             "name": "setManager",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2547,
+              "id": 981,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2544,
+                  "id": 978,
                   "name": "addr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2549,
+                  "scope": 983,
                   "src": "144:12:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -238,7 +238,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2543,
+                    "id": 977,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "144:7:5",
@@ -252,10 +252,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2546,
+                  "id": 980,
                   "name": "newManager",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2549,
+                  "scope": 983,
                   "src": "158:18:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -264,7 +264,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2545,
+                    "id": 979,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "158:7:5",
@@ -281,12 +281,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2548,
+              "id": 982,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "184:0:5"
             },
-            "scope": 2568,
+            "scope": 1002,
             "src": "124:61:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -295,7 +295,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2558,
+            "id": 992,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -303,15 +303,15 @@
             "name": "getInterfaceImplementer",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2554,
+              "id": 988,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2551,
+                  "id": 985,
                   "name": "addr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2558,
+                  "scope": 992,
                   "src": "223:12:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -320,7 +320,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2550,
+                    "id": 984,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "223:7:5",
@@ -334,10 +334,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2553,
+                  "id": 987,
                   "name": "iHash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2558,
+                  "scope": 992,
                   "src": "237:13:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -346,7 +346,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 2552,
+                    "id": 986,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "237:7:5",
@@ -363,15 +363,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2557,
+              "id": 991,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2556,
+                  "id": 990,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2558,
+                  "scope": 992,
                   "src": "277:7:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -380,7 +380,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2555,
+                    "id": 989,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "277:7:5",
@@ -395,7 +395,7 @@
               ],
               "src": "276:9:5"
             },
-            "scope": 2568,
+            "scope": 1002,
             "src": "190:96:5",
             "stateMutability": "view",
             "superFunction": null,
@@ -404,7 +404,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2567,
+            "id": 1001,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -412,15 +412,15 @@
             "name": "setInterfaceImplementer",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2565,
+              "id": 999,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2560,
+                  "id": 994,
                   "name": "addr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2567,
+                  "scope": 1001,
                   "src": "324:12:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -429,7 +429,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2559,
+                    "id": 993,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "324:7:5",
@@ -443,10 +443,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2562,
+                  "id": 996,
                   "name": "iHash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2567,
+                  "scope": 1001,
                   "src": "338:13:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -455,7 +455,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 2561,
+                    "id": 995,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "338:7:5",
@@ -469,10 +469,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2564,
+                  "id": 998,
                   "name": "implementer",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2567,
+                  "scope": 1001,
                   "src": "353:19:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -481,7 +481,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2563,
+                    "id": 997,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "353:7:5",
@@ -498,19 +498,19 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2566,
+              "id": 1000,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "380:0:5"
             },
-            "scope": 2568,
+            "scope": 1002,
             "src": "291:90:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 2632,
+        "scope": 1066,
         "src": "26:357:5"
       },
       {
@@ -519,35 +519,35 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 2631,
+        "id": 1065,
         "linearizedBaseContracts": [
-          2631
+          1065
         ],
         "name": "ERC820Implementer",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 2573,
+            "id": 1007,
             "name": "erc820Registry",
             "nodeType": "VariableDeclaration",
-            "scope": 2631,
+            "scope": 1065,
             "src": "418:90:5",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_ERC820Registry_$2568",
+              "typeIdentifier": "t_contract$_ERC820Registry_$1002",
               "typeString": "contract ERC820Registry"
             },
             "typeName": {
               "contractScope": null,
-              "id": 2569,
+              "id": 1003,
               "name": "ERC820Registry",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2568,
+              "referencedDeclaration": 1002,
               "src": "418:14:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC820Registry_$2568",
+                "typeIdentifier": "t_contract$_ERC820Registry_$1002",
                 "typeString": "contract ERC820Registry"
               }
             },
@@ -557,7 +557,7 @@
                 {
                   "argumentTypes": null,
                   "hexValue": "307839393161316263623037373539393239306437333035343933633941363330633230663862373938",
-                  "id": 2571,
+                  "id": 1005,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": true,
@@ -580,18 +580,18 @@
                     "typeString": "address"
                   }
                 ],
-                "id": 2570,
+                "id": 1004,
                 "name": "ERC820Registry",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 2568,
+                "referencedDeclaration": 1002,
                 "src": "450:14:5",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_type$_t_contract$_ERC820Registry_$2568_$",
+                  "typeIdentifier": "t_type$_t_contract$_ERC820Registry_$1002_$",
                   "typeString": "type(contract ERC820Registry)"
                 }
               },
-              "id": 2572,
+              "id": 1006,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -601,7 +601,7 @@
               "nodeType": "FunctionCall",
               "src": "450:58:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC820Registry_$2568",
+                "typeIdentifier": "t_contract$_ERC820Registry_$1002",
                 "typeString": "contract ERC820Registry"
               }
             },
@@ -609,21 +609,21 @@
           },
           {
             "body": {
-              "id": 2594,
+              "id": 1028,
               "nodeType": "Block",
               "src": "593:129:5",
               "statements": [
                 {
                   "assignments": [
-                    2581
+                    1015
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 2581,
+                      "id": 1015,
                       "name": "ifaceHash",
                       "nodeType": "VariableDeclaration",
-                      "scope": 2595,
+                      "scope": 1029,
                       "src": "603:17:5",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -632,7 +632,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 2580,
+                        "id": 1014,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "603:7:5",
@@ -645,17 +645,17 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 2585,
+                  "id": 1019,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 2583,
+                        "id": 1017,
                         "name": "ifaceLabel",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2575,
+                        "referencedDeclaration": 1009,
                         "src": "633:10:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -670,18 +670,18 @@
                           "typeString": "string memory"
                         }
                       ],
-                      "id": 2582,
+                      "id": 1016,
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3973,
+                      "referencedDeclaration": 2844,
                       "src": "623:9:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_sha3_pure$__$returns$_t_bytes32_$",
                         "typeString": "function () pure returns (bytes32)"
                       }
                     },
-                    "id": 2584,
+                    "id": 1018,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -704,24 +704,24 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 2589,
+                        "id": 1023,
                         "name": "this",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4018,
+                        "referencedDeclaration": 2863,
                         "src": "693:4:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ERC820Implementer_$2631",
+                          "typeIdentifier": "t_contract$_ERC820Implementer_$1065",
                           "typeString": "contract ERC820Implementer"
                         }
                       },
                       {
                         "argumentTypes": null,
-                        "id": 2590,
+                        "id": 1024,
                         "name": "ifaceHash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2581,
+                        "referencedDeclaration": 1015,
                         "src": "699:9:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -730,11 +730,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 2591,
+                        "id": 1025,
                         "name": "impl",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2577,
+                        "referencedDeclaration": 1011,
                         "src": "710:4:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -745,7 +745,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_contract$_ERC820Implementer_$2631",
+                          "typeIdentifier": "t_contract$_ERC820Implementer_$1065",
                           "typeString": "contract ERC820Implementer"
                         },
                         {
@@ -759,32 +759,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 2586,
+                        "id": 1020,
                         "name": "erc820Registry",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2573,
+                        "referencedDeclaration": 1007,
                         "src": "654:14:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ERC820Registry_$2568",
+                          "typeIdentifier": "t_contract$_ERC820Registry_$1002",
                           "typeString": "contract ERC820Registry"
                         }
                       },
-                      "id": 2588,
+                      "id": 1022,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "setInterfaceImplementer",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2567,
+                      "referencedDeclaration": 1001,
                       "src": "654:38:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_bytes32_$_t_address_$returns$__$",
                         "typeString": "function (address,bytes32,address) external"
                       }
                     },
-                    "id": 2592,
+                    "id": 1026,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -798,14 +798,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 2593,
+                  "id": 1027,
                   "nodeType": "ExpressionStatement",
                   "src": "654:61:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 2595,
+            "id": 1029,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -813,15 +813,15 @@
             "name": "setInterfaceImplementation",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2578,
+              "id": 1012,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2575,
+                  "id": 1009,
                   "name": "ifaceLabel",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2595,
+                  "scope": 1029,
                   "src": "551:17:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -830,7 +830,7 @@
                     "typeString": "string memory"
                   },
                   "typeName": {
-                    "id": 2574,
+                    "id": 1008,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "551:6:5",
@@ -844,10 +844,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2577,
+                  "id": 1011,
                   "name": "impl",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2595,
+                  "scope": 1029,
                   "src": "570:12:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -856,7 +856,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2576,
+                    "id": 1010,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "570:7:5",
@@ -873,12 +873,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2579,
+              "id": 1013,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "593:0:5"
             },
-            "scope": 2631,
+            "scope": 1065,
             "src": "515:207:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -886,21 +886,21 @@
           },
           {
             "body": {
-              "id": 2616,
+              "id": 1050,
               "nodeType": "Block",
               "src": "819:130:5",
               "statements": [
                 {
                   "assignments": [
-                    2605
+                    1039
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 2605,
+                      "id": 1039,
                       "name": "ifaceHash",
                       "nodeType": "VariableDeclaration",
-                      "scope": 2617,
+                      "scope": 1051,
                       "src": "829:17:5",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -909,7 +909,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 2604,
+                        "id": 1038,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "829:7:5",
@@ -922,17 +922,17 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 2609,
+                  "id": 1043,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 2607,
+                        "id": 1041,
                         "name": "ifaceLabel",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2599,
+                        "referencedDeclaration": 1033,
                         "src": "859:10:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -947,18 +947,18 @@
                           "typeString": "string memory"
                         }
                       ],
-                      "id": 2606,
+                      "id": 1040,
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3973,
+                      "referencedDeclaration": 2844,
                       "src": "849:9:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_sha3_pure$__$returns$_t_bytes32_$",
                         "typeString": "function () pure returns (bytes32)"
                       }
                     },
-                    "id": 2608,
+                    "id": 1042,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -981,11 +981,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 2612,
+                        "id": 1046,
                         "name": "addr",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2597,
+                        "referencedDeclaration": 1031,
                         "src": "926:4:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -994,11 +994,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 2613,
+                        "id": 1047,
                         "name": "ifaceHash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2605,
+                        "referencedDeclaration": 1039,
                         "src": "932:9:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -1019,32 +1019,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 2610,
+                        "id": 1044,
                         "name": "erc820Registry",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2573,
+                        "referencedDeclaration": 1007,
                         "src": "887:14:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ERC820Registry_$2568",
+                          "typeIdentifier": "t_contract$_ERC820Registry_$1002",
                           "typeString": "contract ERC820Registry"
                         }
                       },
-                      "id": 2611,
+                      "id": 1045,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "getInterfaceImplementer",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2558,
+                      "referencedDeclaration": 992,
                       "src": "887:38:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_view$_t_address_$_t_bytes32_$returns$_t_address_$",
                         "typeString": "function (address,bytes32) view external returns (address)"
                       }
                     },
-                    "id": 2614,
+                    "id": 1048,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1058,15 +1058,15 @@
                       "typeString": "address"
                     }
                   },
-                  "functionReturnParameters": 2603,
-                  "id": 2615,
+                  "functionReturnParameters": 1037,
+                  "id": 1049,
                   "nodeType": "Return",
                   "src": "880:62:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 2617,
+            "id": 1051,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -1074,15 +1074,15 @@
             "name": "interfaceAddr",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2600,
+              "id": 1034,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2597,
+                  "id": 1031,
                   "name": "addr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2617,
+                  "scope": 1051,
                   "src": "751:12:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1091,7 +1091,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2596,
+                    "id": 1030,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "751:7:5",
@@ -1105,10 +1105,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2599,
+                  "id": 1033,
                   "name": "ifaceLabel",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2617,
+                  "scope": 1051,
                   "src": "765:17:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1117,7 +1117,7 @@
                     "typeString": "string memory"
                   },
                   "typeName": {
-                    "id": 2598,
+                    "id": 1032,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "765:6:5",
@@ -1134,15 +1134,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2603,
+              "id": 1037,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2602,
+                  "id": 1036,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2617,
+                  "scope": 1051,
                   "src": "810:7:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1151,7 +1151,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2601,
+                    "id": 1035,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "810:7:5",
@@ -1166,7 +1166,7 @@
               ],
               "src": "809:9:5"
             },
-            "scope": 2631,
+            "scope": 1065,
             "src": "728:221:5",
             "stateMutability": "view",
             "superFunction": null,
@@ -1174,7 +1174,7 @@
           },
           {
             "body": {
-              "id": 2629,
+              "id": 1063,
               "nodeType": "Block",
               "src": "1012:60:5",
               "statements": [
@@ -1184,24 +1184,24 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 2625,
+                        "id": 1059,
                         "name": "this",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4018,
+                        "referencedDeclaration": 2863,
                         "src": "1048:4:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ERC820Implementer_$2631",
+                          "typeIdentifier": "t_contract$_ERC820Implementer_$1065",
                           "typeString": "contract ERC820Implementer"
                         }
                       },
                       {
                         "argumentTypes": null,
-                        "id": 2626,
+                        "id": 1060,
                         "name": "newManager",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2619,
+                        "referencedDeclaration": 1053,
                         "src": "1054:10:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1212,7 +1212,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_contract$_ERC820Implementer_$2631",
+                          "typeIdentifier": "t_contract$_ERC820Implementer_$1065",
                           "typeString": "contract ERC820Implementer"
                         },
                         {
@@ -1222,32 +1222,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 2622,
+                        "id": 1056,
                         "name": "erc820Registry",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2573,
+                        "referencedDeclaration": 1007,
                         "src": "1022:14:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ERC820Registry_$2568",
+                          "typeIdentifier": "t_contract$_ERC820Registry_$1002",
                           "typeString": "contract ERC820Registry"
                         }
                       },
-                      "id": 2624,
+                      "id": 1058,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "setManager",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2549,
+                      "referencedDeclaration": 983,
                       "src": "1022:25:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$returns$__$",
                         "typeString": "function (address,address) external"
                       }
                     },
-                    "id": 2627,
+                    "id": 1061,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1261,14 +1261,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 2628,
+                  "id": 1062,
                   "nodeType": "ExpressionStatement",
                   "src": "1022:43:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 2630,
+            "id": 1064,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1276,15 +1276,15 @@
             "name": "delegateManagement",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2620,
+              "id": 1054,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2619,
+                  "id": 1053,
                   "name": "newManager",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2630,
+                  "scope": 1064,
                   "src": "983:18:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1293,7 +1293,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2618,
+                    "id": 1052,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "983:7:5",
@@ -1310,19 +1310,19 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2621,
+              "id": 1055,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1012:0:5"
             },
-            "scope": 2631,
+            "scope": 1065,
             "src": "955:117:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 2632,
+        "scope": 1066,
         "src": "385:689:5"
       }
     ],
@@ -1332,17 +1332,17 @@
     "absolutePath": "eip820/contracts/ERC820Implementer.sol",
     "exportedSymbols": {
       "ERC820Implementer": [
-        2631
+        1065
       ],
       "ERC820Registry": [
-        2568
+        1002
       ]
     },
-    "id": 2632,
+    "id": 1066,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2535,
+        "id": 969,
         "literals": [
           "solidity",
           "^",
@@ -1358,9 +1358,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 2568,
+        "id": 1002,
         "linearizedBaseContracts": [
-          2568
+          1002
         ],
         "name": "ERC820Registry",
         "nodeType": "ContractDefinition",
@@ -1368,7 +1368,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2542,
+            "id": 976,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -1376,15 +1376,15 @@
             "name": "getManager",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2538,
+              "id": 972,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2537,
+                  "id": 971,
                   "name": "addr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2542,
+                  "scope": 976,
                   "src": "76:12:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1393,7 +1393,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2536,
+                    "id": 970,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "76:7:5",
@@ -1410,15 +1410,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2541,
+              "id": 975,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2540,
+                  "id": 974,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2542,
+                  "scope": 976,
                   "src": "110:7:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1427,7 +1427,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2539,
+                    "id": 973,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "110:7:5",
@@ -1442,7 +1442,7 @@
               ],
               "src": "109:9:5"
             },
-            "scope": 2568,
+            "scope": 1002,
             "src": "56:63:5",
             "stateMutability": "view",
             "superFunction": null,
@@ -1451,7 +1451,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2549,
+            "id": 983,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1459,15 +1459,15 @@
             "name": "setManager",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2547,
+              "id": 981,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2544,
+                  "id": 978,
                   "name": "addr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2549,
+                  "scope": 983,
                   "src": "144:12:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1476,7 +1476,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2543,
+                    "id": 977,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "144:7:5",
@@ -1490,10 +1490,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2546,
+                  "id": 980,
                   "name": "newManager",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2549,
+                  "scope": 983,
                   "src": "158:18:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1502,7 +1502,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2545,
+                    "id": 979,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "158:7:5",
@@ -1519,12 +1519,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2548,
+              "id": 982,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "184:0:5"
             },
-            "scope": 2568,
+            "scope": 1002,
             "src": "124:61:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1533,7 +1533,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2558,
+            "id": 992,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -1541,15 +1541,15 @@
             "name": "getInterfaceImplementer",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2554,
+              "id": 988,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2551,
+                  "id": 985,
                   "name": "addr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2558,
+                  "scope": 992,
                   "src": "223:12:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1558,7 +1558,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2550,
+                    "id": 984,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "223:7:5",
@@ -1572,10 +1572,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2553,
+                  "id": 987,
                   "name": "iHash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2558,
+                  "scope": 992,
                   "src": "237:13:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1584,7 +1584,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 2552,
+                    "id": 986,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "237:7:5",
@@ -1601,15 +1601,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2557,
+              "id": 991,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2556,
+                  "id": 990,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2558,
+                  "scope": 992,
                   "src": "277:7:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1618,7 +1618,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2555,
+                    "id": 989,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "277:7:5",
@@ -1633,7 +1633,7 @@
               ],
               "src": "276:9:5"
             },
-            "scope": 2568,
+            "scope": 1002,
             "src": "190:96:5",
             "stateMutability": "view",
             "superFunction": null,
@@ -1642,7 +1642,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2567,
+            "id": 1001,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1650,15 +1650,15 @@
             "name": "setInterfaceImplementer",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2565,
+              "id": 999,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2560,
+                  "id": 994,
                   "name": "addr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2567,
+                  "scope": 1001,
                   "src": "324:12:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1667,7 +1667,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2559,
+                    "id": 993,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "324:7:5",
@@ -1681,10 +1681,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2562,
+                  "id": 996,
                   "name": "iHash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2567,
+                  "scope": 1001,
                   "src": "338:13:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1693,7 +1693,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 2561,
+                    "id": 995,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "338:7:5",
@@ -1707,10 +1707,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2564,
+                  "id": 998,
                   "name": "implementer",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2567,
+                  "scope": 1001,
                   "src": "353:19:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1719,7 +1719,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2563,
+                    "id": 997,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "353:7:5",
@@ -1736,19 +1736,19 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2566,
+              "id": 1000,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "380:0:5"
             },
-            "scope": 2568,
+            "scope": 1002,
             "src": "291:90:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 2632,
+        "scope": 1066,
         "src": "26:357:5"
       },
       {
@@ -1757,35 +1757,35 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 2631,
+        "id": 1065,
         "linearizedBaseContracts": [
-          2631
+          1065
         ],
         "name": "ERC820Implementer",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 2573,
+            "id": 1007,
             "name": "erc820Registry",
             "nodeType": "VariableDeclaration",
-            "scope": 2631,
+            "scope": 1065,
             "src": "418:90:5",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_ERC820Registry_$2568",
+              "typeIdentifier": "t_contract$_ERC820Registry_$1002",
               "typeString": "contract ERC820Registry"
             },
             "typeName": {
               "contractScope": null,
-              "id": 2569,
+              "id": 1003,
               "name": "ERC820Registry",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2568,
+              "referencedDeclaration": 1002,
               "src": "418:14:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC820Registry_$2568",
+                "typeIdentifier": "t_contract$_ERC820Registry_$1002",
                 "typeString": "contract ERC820Registry"
               }
             },
@@ -1795,7 +1795,7 @@
                 {
                   "argumentTypes": null,
                   "hexValue": "307839393161316263623037373539393239306437333035343933633941363330633230663862373938",
-                  "id": 2571,
+                  "id": 1005,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": true,
@@ -1818,18 +1818,18 @@
                     "typeString": "address"
                   }
                 ],
-                "id": 2570,
+                "id": 1004,
                 "name": "ERC820Registry",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 2568,
+                "referencedDeclaration": 1002,
                 "src": "450:14:5",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_type$_t_contract$_ERC820Registry_$2568_$",
+                  "typeIdentifier": "t_type$_t_contract$_ERC820Registry_$1002_$",
                   "typeString": "type(contract ERC820Registry)"
                 }
               },
-              "id": 2572,
+              "id": 1006,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -1839,7 +1839,7 @@
               "nodeType": "FunctionCall",
               "src": "450:58:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC820Registry_$2568",
+                "typeIdentifier": "t_contract$_ERC820Registry_$1002",
                 "typeString": "contract ERC820Registry"
               }
             },
@@ -1847,21 +1847,21 @@
           },
           {
             "body": {
-              "id": 2594,
+              "id": 1028,
               "nodeType": "Block",
               "src": "593:129:5",
               "statements": [
                 {
                   "assignments": [
-                    2581
+                    1015
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 2581,
+                      "id": 1015,
                       "name": "ifaceHash",
                       "nodeType": "VariableDeclaration",
-                      "scope": 2595,
+                      "scope": 1029,
                       "src": "603:17:5",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -1870,7 +1870,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 2580,
+                        "id": 1014,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "603:7:5",
@@ -1883,17 +1883,17 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 2585,
+                  "id": 1019,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 2583,
+                        "id": 1017,
                         "name": "ifaceLabel",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2575,
+                        "referencedDeclaration": 1009,
                         "src": "633:10:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -1908,18 +1908,18 @@
                           "typeString": "string memory"
                         }
                       ],
-                      "id": 2582,
+                      "id": 1016,
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3973,
+                      "referencedDeclaration": 2844,
                       "src": "623:9:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_sha3_pure$__$returns$_t_bytes32_$",
                         "typeString": "function () pure returns (bytes32)"
                       }
                     },
-                    "id": 2584,
+                    "id": 1018,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1942,24 +1942,24 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 2589,
+                        "id": 1023,
                         "name": "this",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4018,
+                        "referencedDeclaration": 2863,
                         "src": "693:4:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ERC820Implementer_$2631",
+                          "typeIdentifier": "t_contract$_ERC820Implementer_$1065",
                           "typeString": "contract ERC820Implementer"
                         }
                       },
                       {
                         "argumentTypes": null,
-                        "id": 2590,
+                        "id": 1024,
                         "name": "ifaceHash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2581,
+                        "referencedDeclaration": 1015,
                         "src": "699:9:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -1968,11 +1968,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 2591,
+                        "id": 1025,
                         "name": "impl",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2577,
+                        "referencedDeclaration": 1011,
                         "src": "710:4:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1983,7 +1983,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_contract$_ERC820Implementer_$2631",
+                          "typeIdentifier": "t_contract$_ERC820Implementer_$1065",
                           "typeString": "contract ERC820Implementer"
                         },
                         {
@@ -1997,32 +1997,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 2586,
+                        "id": 1020,
                         "name": "erc820Registry",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2573,
+                        "referencedDeclaration": 1007,
                         "src": "654:14:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ERC820Registry_$2568",
+                          "typeIdentifier": "t_contract$_ERC820Registry_$1002",
                           "typeString": "contract ERC820Registry"
                         }
                       },
-                      "id": 2588,
+                      "id": 1022,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "setInterfaceImplementer",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2567,
+                      "referencedDeclaration": 1001,
                       "src": "654:38:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_bytes32_$_t_address_$returns$__$",
                         "typeString": "function (address,bytes32,address) external"
                       }
                     },
-                    "id": 2592,
+                    "id": 1026,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2036,14 +2036,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 2593,
+                  "id": 1027,
                   "nodeType": "ExpressionStatement",
                   "src": "654:61:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 2595,
+            "id": 1029,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -2051,15 +2051,15 @@
             "name": "setInterfaceImplementation",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2578,
+              "id": 1012,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2575,
+                  "id": 1009,
                   "name": "ifaceLabel",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2595,
+                  "scope": 1029,
                   "src": "551:17:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2068,7 +2068,7 @@
                     "typeString": "string memory"
                   },
                   "typeName": {
-                    "id": 2574,
+                    "id": 1008,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "551:6:5",
@@ -2082,10 +2082,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2577,
+                  "id": 1011,
                   "name": "impl",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2595,
+                  "scope": 1029,
                   "src": "570:12:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2094,7 +2094,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2576,
+                    "id": 1010,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "570:7:5",
@@ -2111,12 +2111,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2579,
+              "id": 1013,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "593:0:5"
             },
-            "scope": 2631,
+            "scope": 1065,
             "src": "515:207:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2124,21 +2124,21 @@
           },
           {
             "body": {
-              "id": 2616,
+              "id": 1050,
               "nodeType": "Block",
               "src": "819:130:5",
               "statements": [
                 {
                   "assignments": [
-                    2605
+                    1039
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 2605,
+                      "id": 1039,
                       "name": "ifaceHash",
                       "nodeType": "VariableDeclaration",
-                      "scope": 2617,
+                      "scope": 1051,
                       "src": "829:17:5",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -2147,7 +2147,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 2604,
+                        "id": 1038,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "829:7:5",
@@ -2160,17 +2160,17 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 2609,
+                  "id": 1043,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 2607,
+                        "id": 1041,
                         "name": "ifaceLabel",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2599,
+                        "referencedDeclaration": 1033,
                         "src": "859:10:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -2185,18 +2185,18 @@
                           "typeString": "string memory"
                         }
                       ],
-                      "id": 2606,
+                      "id": 1040,
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3973,
+                      "referencedDeclaration": 2844,
                       "src": "849:9:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_sha3_pure$__$returns$_t_bytes32_$",
                         "typeString": "function () pure returns (bytes32)"
                       }
                     },
-                    "id": 2608,
+                    "id": 1042,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2219,11 +2219,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 2612,
+                        "id": 1046,
                         "name": "addr",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2597,
+                        "referencedDeclaration": 1031,
                         "src": "926:4:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2232,11 +2232,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 2613,
+                        "id": 1047,
                         "name": "ifaceHash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2605,
+                        "referencedDeclaration": 1039,
                         "src": "932:9:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -2257,32 +2257,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 2610,
+                        "id": 1044,
                         "name": "erc820Registry",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2573,
+                        "referencedDeclaration": 1007,
                         "src": "887:14:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ERC820Registry_$2568",
+                          "typeIdentifier": "t_contract$_ERC820Registry_$1002",
                           "typeString": "contract ERC820Registry"
                         }
                       },
-                      "id": 2611,
+                      "id": 1045,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "getInterfaceImplementer",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2558,
+                      "referencedDeclaration": 992,
                       "src": "887:38:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_view$_t_address_$_t_bytes32_$returns$_t_address_$",
                         "typeString": "function (address,bytes32) view external returns (address)"
                       }
                     },
-                    "id": 2614,
+                    "id": 1048,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2296,15 +2296,15 @@
                       "typeString": "address"
                     }
                   },
-                  "functionReturnParameters": 2603,
-                  "id": 2615,
+                  "functionReturnParameters": 1037,
+                  "id": 1049,
                   "nodeType": "Return",
                   "src": "880:62:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 2617,
+            "id": 1051,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -2312,15 +2312,15 @@
             "name": "interfaceAddr",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2600,
+              "id": 1034,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2597,
+                  "id": 1031,
                   "name": "addr",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2617,
+                  "scope": 1051,
                   "src": "751:12:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2329,7 +2329,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2596,
+                    "id": 1030,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "751:7:5",
@@ -2343,10 +2343,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2599,
+                  "id": 1033,
                   "name": "ifaceLabel",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2617,
+                  "scope": 1051,
                   "src": "765:17:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2355,7 +2355,7 @@
                     "typeString": "string memory"
                   },
                   "typeName": {
-                    "id": 2598,
+                    "id": 1032,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "765:6:5",
@@ -2372,15 +2372,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2603,
+              "id": 1037,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2602,
+                  "id": 1036,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2617,
+                  "scope": 1051,
                   "src": "810:7:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2389,7 +2389,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2601,
+                    "id": 1035,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "810:7:5",
@@ -2404,7 +2404,7 @@
               ],
               "src": "809:9:5"
             },
-            "scope": 2631,
+            "scope": 1065,
             "src": "728:221:5",
             "stateMutability": "view",
             "superFunction": null,
@@ -2412,7 +2412,7 @@
           },
           {
             "body": {
-              "id": 2629,
+              "id": 1063,
               "nodeType": "Block",
               "src": "1012:60:5",
               "statements": [
@@ -2422,24 +2422,24 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 2625,
+                        "id": 1059,
                         "name": "this",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4018,
+                        "referencedDeclaration": 2863,
                         "src": "1048:4:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ERC820Implementer_$2631",
+                          "typeIdentifier": "t_contract$_ERC820Implementer_$1065",
                           "typeString": "contract ERC820Implementer"
                         }
                       },
                       {
                         "argumentTypes": null,
-                        "id": 2626,
+                        "id": 1060,
                         "name": "newManager",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2619,
+                        "referencedDeclaration": 1053,
                         "src": "1054:10:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2450,7 +2450,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_contract$_ERC820Implementer_$2631",
+                          "typeIdentifier": "t_contract$_ERC820Implementer_$1065",
                           "typeString": "contract ERC820Implementer"
                         },
                         {
@@ -2460,32 +2460,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 2622,
+                        "id": 1056,
                         "name": "erc820Registry",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2573,
+                        "referencedDeclaration": 1007,
                         "src": "1022:14:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ERC820Registry_$2568",
+                          "typeIdentifier": "t_contract$_ERC820Registry_$1002",
                           "typeString": "contract ERC820Registry"
                         }
                       },
-                      "id": 2624,
+                      "id": 1058,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "setManager",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2549,
+                      "referencedDeclaration": 983,
                       "src": "1022:25:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$returns$__$",
                         "typeString": "function (address,address) external"
                       }
                     },
-                    "id": 2627,
+                    "id": 1061,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2499,14 +2499,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 2628,
+                  "id": 1062,
                   "nodeType": "ExpressionStatement",
                   "src": "1022:43:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 2630,
+            "id": 1064,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -2514,15 +2514,15 @@
             "name": "delegateManagement",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2620,
+              "id": 1054,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2619,
+                  "id": 1053,
                   "name": "newManager",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2630,
+                  "scope": 1064,
                   "src": "983:18:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2531,7 +2531,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2618,
+                    "id": 1052,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "983:7:5",
@@ -2548,19 +2548,19 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 2621,
+              "id": 1055,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1012:0:5"
             },
-            "scope": 2631,
+            "scope": 1065,
             "src": "955:117:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 2632,
+        "scope": 1066,
         "src": "385:689:5"
       }
     ],
@@ -2572,5 +2572,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-06-12T12:09:38.573Z"
+  "updatedAt": "2018-06-13T09:17:33.373Z"
 }
