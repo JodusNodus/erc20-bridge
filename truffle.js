@@ -14,11 +14,11 @@ function getNetworks() {
 	// 	process.exit();
 	// }
 	const networks = {
-		development: {
-			host: "localhost",
-			port: 8545,
-			network_id: "*" // Match any network id
-		},
+		// development: {
+		// 	host: "localhost",
+		// 	port: 8545,
+		// 	network_id: "*" // Match any network id
+		// },
 		// ropsten: {
 		// 	provider: ownerAccount ? new PrivateKeyProvider(ownerAccount.private, "https://ropsten.infura.io/U8U4n8mm2wDgB2e3Dksv") : null,
 		// 	network_id: 3,
