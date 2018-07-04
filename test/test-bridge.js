@@ -150,6 +150,9 @@ contract('SampleERC20/ERC777', (accounts) => {
 				from: bridgeOwner,
 			});
 
+			let tokens = await foreignERC777Bridge.tokens();
+			assert.equal(tokens.length, 1)
+
 			// find out the newly deployed ERC777 token address
 			sidechainTokenAddress = await foreignERC777Bridge.tokenMap(homeToken.address);
 			assert.ok(sidechainTokenAddress);
