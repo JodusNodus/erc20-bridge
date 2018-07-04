@@ -16,6 +16,7 @@ contract ForeignERC777Bridge is Ownable, Validatable {
 
 	// maps home token addresses -> foreign token addresses
 	mapping(address=>address) public tokenMap;
+    address[] public registeredTokens;
 
 	event WithdrawRequest(address _to,uint256 _amount,bytes32 _withdrawhash);
 	event TokenAdded(address _mainToken,address _sideToken);
@@ -39,8 +40,13 @@ contract ForeignERC777Bridge is Ownable, Validatable {
 		assert(t.owner() == address(this));
 		//t.transferOwnership(this);
 		tokenMap[_mainToken] = t;
+        registeredTokens.push(_mainToken);
 		emit TokenAdded(_mainToken,address(t));
 	}
+
+    function tokens() public view returns(address[]) {
+        return registeredTokens;
+    }
 
 	function signMintRequest(bytes32 _transactionHash,address _mainToken, address _recipient,uint256 _amount,uint8 _v, bytes32 _r, bytes32 _s) public {
 		bytes32 mintRequestsHash = sha256(_transactionHash,_mainToken,_recipient,_amount);
