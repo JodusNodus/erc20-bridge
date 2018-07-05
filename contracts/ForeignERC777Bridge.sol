@@ -34,9 +34,9 @@ contract ForeignERC777Bridge is Ownable, Validatable {
 		//tokenMap[0x0] = t;
 	}
 
-	function registerToken(DetailedERC20 _mainToken) public onlyOwner {
+	function registerToken(DetailedERC20 _mainToken, string name, string symbol) public onlyOwner {
 		assert(tokenMap[_mainToken] == 0);
-		ReferenceToken t = new ReferenceToken('Bridged Token','BTOK',1);
+		ReferenceToken t = new ReferenceToken(name, symbol,1);
 		assert(t.owner() == address(this));
 		//t.transferOwnership(this);
 		tokenMap[_mainToken] = t;

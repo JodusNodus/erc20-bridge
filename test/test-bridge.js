@@ -146,7 +146,9 @@ contract('SampleERC20/ERC777', (accounts) => {
 			// token minting and burning is a reserved privilege for
 			// the bridge
 
-			await foreignERC777Bridge.registerToken(homeToken.address, {
+			const name = await homeToken.name()
+			const symbol = await homeToken.symbol()
+			await foreignERC777Bridge.registerToken(homeToken.address, name, symbol, {
 				from: bridgeOwner,
 			});
 
