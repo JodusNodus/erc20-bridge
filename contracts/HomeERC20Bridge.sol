@@ -11,18 +11,9 @@ contract HomeERC20Bridge is Validatable {
 
 	mapping(bytes32=>bool) usedHashes;
 	
-	event BridgeETH(address from, uint256 value);
-
 	function HomeERC20Bridge(uint8 _requiredValidators,address[] _initialValidators) Validatable(_requiredValidators,_initialValidators) public {
 
 	}
-
-	// ETH deposit
-	function() public payable {
-		BridgeETH(msg.sender,msg.value);
-	}
-
-	event EmitHash(bytes32 _hash);
 
 	function checkValidations(
 		bytes32 _hash,
@@ -44,7 +35,6 @@ contract HomeERC20Bridge is Validatable {
 		address _recipient,
 		uint256 _amount,
 		uint256 _withdrawblock,
-		uint256 _reward,
 		uint8[] _v,
 		bytes32[] _r,
 		bytes32[] _s) public{
@@ -57,40 +47,24 @@ contract HomeERC20Bridge is Validatable {
 		// mark hash as used
 		usedHashes[hash] = true;
 
+		assert(_token != 0x0);
+
+		assert(_recipient != 0x0);
+
+		assert(_amount >= 0);
+
 		// the time-lock should have passed
-		assert(_withdrawblock <= block.number);		
+		// assert(_withdrawblock <= block.number);		
 
 		// verify the provided signatures
 		assert(_v.length > 0);
+		assert(_v.length == _r.length);
+		assert(_v.length == _s.length);
 
-		if (_reward > 0) {
-			assert(_reward < _amount);
-			// verify if the threshold of required signatures is met
-			assert(checkValidations(hash,_v.length-1,_v,_r,_s) >= requiredValidators);
-			// check if the reward has been signed off by the receiver ( last signature ) ...
-			bytes32 rewardHash = sha256(hash,_token,_recipient,_amount,_withdrawblock,_reward);
-			assert(ecrecover(rewardHash, _v[_v.length-1], _r[_v.length-1], _s[_v.length-1]) == _recipient);
-			// all OK. mark hash as used & Transfer tokens + reward
-			if (_token == 0x0){
-				// ETH transfer
-				_recipient.transfer(_amount.sub(_reward));
-				msg.sender.transfer(_reward);
-			}else{
-				// ERC-20 transfer
-				assert(ERC20Basic(_token).transfer(_recipient,_amount.sub(_reward)));
-				assert(ERC20Basic(_token).transfer(msg.sender,_reward));
-			}		
-		}else{
-			// verify if the threshold of required signatures is met
-			assert(checkValidations(hash,_v.length,_v,_r,_s) >= requiredValidators);
-			if (_token == 0x0){
-				// ETH transfer
-				_recipient.transfer(_amount);
-			}else{
-				// ERC-20 transfer
-				assert(ERC20Basic(_token).transfer(_recipient,_amount));
-			}
-		}
+		// verify if the threshold of required signatures is met
+		assert(checkValidations(hash,_v.length,_v,_r,_s) >= requiredValidators);
+		// ERC-20 transfer
+		assert(ERC20Basic(_token).transfer(_recipient,_amount));
 	}	
 
 
