@@ -58,18 +58,18 @@ contract HomeERC20Bridge is Validatable {
 		usedHashes[hash] = true;
 
 		// the time-lock should have passed
-        assert(_withdrawblock <= block.number);		
+		assert(_withdrawblock <= block.number);		
 
 		// verify the provided signatures
 		assert(_v.length > 0);
 
-        if (_reward > 0) {
-	        assert(_reward < _amount);
+		if (_reward > 0) {
+			assert(_reward < _amount);
 			// verify if the threshold of required signatures is met
-    	    assert(checkValidations(hash,_v.length-1,_v,_r,_s) >= requiredValidators);
-		    // check if the reward has been signed off by the receiver ( last signature ) ...
-    		bytes32 rewardHash = sha256(hash,_token,_recipient,_amount,_withdrawblock,_reward);
-    		assert(ecrecover(rewardHash, _v[_v.length-1], _r[_v.length-1], _s[_v.length-1]) == _recipient);
+			assert(checkValidations(hash,_v.length-1,_v,_r,_s) >= requiredValidators);
+			// check if the reward has been signed off by the receiver ( last signature ) ...
+			bytes32 rewardHash = sha256(hash,_token,_recipient,_amount,_withdrawblock,_reward);
+			assert(ecrecover(rewardHash, _v[_v.length-1], _r[_v.length-1], _s[_v.length-1]) == _recipient);
 			// all OK. mark hash as used & Transfer tokens + reward
 			if (_token == 0x0){
 				// ETH transfer
@@ -80,9 +80,9 @@ contract HomeERC20Bridge is Validatable {
 				assert(ERC20Basic(_token).transfer(_recipient,_amount.sub(_reward)));
 				assert(ERC20Basic(_token).transfer(msg.sender,_reward));
 			}		
-        }else{
+		}else{
 			// verify if the threshold of required signatures is met
-    	    assert(checkValidations(hash,_v.length,_v,_r,_s) >= requiredValidators);
+			assert(checkValidations(hash,_v.length,_v,_r,_s) >= requiredValidators);
 			if (_token == 0x0){
 				// ETH transfer
 				_recipient.transfer(_amount);
@@ -90,7 +90,7 @@ contract HomeERC20Bridge is Validatable {
 				// ERC-20 transfer
 				assert(ERC20Basic(_token).transfer(_recipient,_amount));
 			}
-        }
+		}
 	}	
 
 
