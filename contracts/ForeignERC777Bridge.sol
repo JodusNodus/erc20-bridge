@@ -26,25 +26,28 @@ contract ForeignERC777Bridge is Ownable, Validatable {
 	event WithdrawRequestGranted(bytes32 _withdrawRequestsHash, bytes32 _transactionHash,address _mainToken, address _recipient,uint256 _amount,uint256 _withdrawBlock);
 
 	function ForeignERC777Bridge(uint8 _requiredValidators,address[] _initialValidators) Validatable(_requiredValidators,_initialValidators) public {
-		// deploy a sidechain ETH token as an ERC-777.
-		//address t = new ReferenceToken('sidechain ETH','sETH',1);
-		//assert(t != 0x0);
-		//tokenMap[0x0] = t;
 	}
 
-	function registerToken(DetailedERC20 _mainToken, string name, string symbol) public onlyOwner {
+	// Register ERC20 token on the home net and its counterpart ERC777 token on the foreign net.
+	function registerToken(DetailedERC20 _mainToken, ReferenceToken _foreignToken) public onlyOwner {
 		assert(tokenMap[_mainToken] == 0);
-		ReferenceToken t = new ReferenceToken(name, symbol,1);
+
+		assert(address(_mainToken) != 0x0);
+		assert(address(_foreignToken) != 0x0);
+
+		ReferenceToken t = ReferenceToken(_foreignToken);
+
+		assert(address(t) != 0x0);
 		assert(t.owner() == address(this));
-		//t.transferOwnership(this);
+
 		tokenMap[_mainToken] = t;
-        registeredTokens.push(_mainToken);
-		emit TokenAdded(_mainToken,address(t));
+		registeredTokens.push(_mainToken);
+		emit TokenAdded(_mainToken, _foreignToken);
 	}
 
-    function tokens() public view returns(address[]) {
-        return registeredTokens;
-    }
+	function tokens() public view returns(address[]) {
+			return registeredTokens;
+	}
 
 	function signMintRequest(bytes32 _transactionHash,address _mainToken, address _recipient,uint256 _amount,uint8 _v, bytes32 _r, bytes32 _s) public {
 		assert(_amount > 0);
