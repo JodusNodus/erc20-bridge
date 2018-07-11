@@ -1,11 +1,11 @@
 pragma solidity ^0.4.18;
 
-import 'erc777/contracts/examples/ReferenceToken.sol';
 import 'openzeppelin-solidity/contracts/ownership/Ownable.sol';
-import 'openzeppelin-solidity/contracts/token/ERC20/DetailedERC20.sol';
+import 'openzeppelin-solidity/contracts/token/ERC20/BurnableToken.sol';
+import 'openzeppelin-solidity/contracts/token/ERC20/MintableToken.sol';
 import './Validatable.sol';
 
-contract ForeignERC777Bridge is Ownable, Validatable {
+contract ForeignBridge is Ownable, Validatable {
 
 	mapping(bytes32=>uint8) public requests;
 	mapping(bytes32=>bool) public requestsDone;
@@ -25,17 +25,17 @@ contract ForeignERC777Bridge is Ownable, Validatable {
 	event WithdrawRequestSigned(bytes32 _withdrawRequestsHash, bytes32 _transactionHash,address _mainToken, address _recipient,uint256 _amount,uint256 _withdrawBlock,address _signer, uint8 _v, bytes32 _r, bytes32 _s);
 	event WithdrawRequestGranted(bytes32 _withdrawRequestsHash, bytes32 _transactionHash,address _mainToken, address _recipient,uint256 _amount,uint256 _withdrawBlock);
 
-	function ForeignERC777Bridge(uint8 _requiredValidators,address[] _initialValidators) Validatable(_requiredValidators,_initialValidators) public {
+	function ForeignBridge(uint8 _requiredValidators,address[] _initialValidators) Validatable(_requiredValidators,_initialValidators) public {
 	}
 
-	// Register ERC20 token on the home net and its counterpart ERC777 token on the foreign net.
-	function registerToken(DetailedERC20 _mainToken, ReferenceToken _foreignToken) public onlyOwner {
+	// Register ERC20 token on the home net and its counterpart token on the foreign net.
+	function registerToken(address _mainToken, address _foreignToken) public onlyOwner {
 		assert(tokenMap[_mainToken] == 0);
 
-		assert(address(_mainToken) != 0x0);
-		assert(address(_foreignToken) != 0x0);
+		assert(_mainToken != 0x0);
+		assert(_foreignToken != 0x0);
 
-		ReferenceToken t = ReferenceToken(_foreignToken);
+		Ownable t = Ownable(_foreignToken);
 
 		assert(address(t) != 0x0);
 		assert(t.owner() == address(this));
@@ -74,7 +74,7 @@ contract ForeignERC777Bridge is Ownable, Validatable {
 			emit MintRequestSigned(reqHash, _transactionHash, _mainToken,  _recipient, _amount, requiredValidators, requests[reqHash], signRequestHash);
 		} else {
 			requestsDone[reqHash] = true;
-			ReferenceToken(tokenMap[_mainToken]).mint(_recipient,_amount,'');
+			MintableToken(tokenMap[_mainToken]).mint(_recipient,_amount);
 			emit MintRequestExecuted(reqHash,_transactionHash, tokenMap[_mainToken],  _recipient, _amount);
 		}
 	}
@@ -105,11 +105,9 @@ contract ForeignERC777Bridge is Ownable, Validatable {
 
 		if (requests[reqHash] >= requiredValidators) {
 			requestsDone[reqHash] = true;
-			bytes memory userData;
-			bytes memory operatorData;
 
 			// Burn the tokens we received
-			ReferenceToken(tokenMap[_mainToken]).burn(address(this), _amount, userData, operatorData);
+			BurnableToken(tokenMap[_mainToken]).burn(_amount);
 
 			emit WithdrawRequestGranted(reqHash, _transactionHash, _mainToken, _recipient, _amount, _withdrawBlock);
 		}

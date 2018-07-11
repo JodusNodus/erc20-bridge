@@ -6,12 +6,12 @@ import 'openzeppelin-solidity/contracts/math/SafeMath.sol';
 
 import './Validatable.sol';
 
-contract HomeERC20Bridge is Validatable {
+contract HomeBridge is Validatable {
 	using SafeMath for uint256;
 
 	mapping(bytes32=>bool) usedHashes;
 	
-	function HomeERC20Bridge(uint8 _requiredValidators,address[] _initialValidators) Validatable(_requiredValidators,_initialValidators) public {
+	function HomeBridge(uint8 _requiredValidators,address[] _initialValidators) Validatable(_requiredValidators,_initialValidators) public {
 
 	}
 
@@ -37,7 +37,7 @@ contract HomeERC20Bridge is Validatable {
 		uint256 _withdrawblock,
 		uint8[] _v,
 		bytes32[] _r,
-		bytes32[] _s) public{
+		bytes32[] _s) public {
 
 		bytes32 hash = sha256(_token,_recipient,_amount,_withdrawblock);
 
@@ -64,7 +64,7 @@ contract HomeERC20Bridge is Validatable {
 		// verify if the threshold of required signatures is met
 		assert(checkValidations(hash,_v.length,_v,_r,_s) >= requiredValidators);
 		// ERC-20 transfer
-		assert(ERC20Basic(_token).transfer(_recipient,_amount));
+		ERC20Basic(_token).transfer(_recipient, _amount);
 	}	
 
 
