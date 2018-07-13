@@ -6,7 +6,7 @@ The bridge transfers any ERC20 token to a corresponding token on another chain.
 - https://github.com/paritytech/parity-bridge/
 
 ## Deploy
-- Change options in `scripts/deploy.js`.
+- Edit `deploy-config.json`.
 - `npm run compile`
 - `npm run deploy`
 
@@ -23,9 +23,10 @@ The bridge transfers any ERC20 token to a corresponding token on another chain.
 - __Validator__: Program that is connected to both chain and acts as a middleman.
 - __SampleERC20__: ERC20 contract that is deployed on both chains.
 
-## Assumptions on trust
-- The authorized validator nodes acts in __Alice__'s best intrest.
+## Assumptions
+- The authorized validator nodes act in __Alice__'s best intrest.
 - The minimum threshold of validators is always online to process their request.
+- Foreign __SampleERC20__ tokens can only be minted by the bridge.
 
 ### Setup
 - Each __Validator__ node must have a seed corresponding to an account. These accounts need enough gas on both chains to send transactions on the private chain (ex. in case of mintnet this doesn't apply).

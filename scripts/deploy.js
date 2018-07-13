@@ -7,74 +7,61 @@ const SampleERC20 = require("../build/contracts/SampleERC20.json");
 const HomeBridge = require("../build/contracts/HomeBridge.json");
 const ForeignBridge = require("../build/contracts/ForeignBridge.json");
 
-const options = {
-  requiredValidators: 1,
-  seeds: ["validator1", "validator2", "validator3"],
-  providers: {
-    home: new HDWalletProvider(
-      "this is a real seed",
-      "http://localhost:7545"
-    ),
-    foreign: new HDWalletProvider(
-      "this is a real seed",
-      "https://mintnet.settlemint.com"
-    )
-  },
-  gasPrice: {
-    home: "10",
-    foreign: "0"
-  }
-};
+const config = require("../deploy-config.json");
+
+async function sendWithEstimateGas (call, owner) {
+  const gasEstimate = await call.estimateGas();
+  return await call.send({ gas: Math.ceil(gasEstimate * 1.5), owner });
+}
 
 async function deployERC20(web3, owner, gasPrice) {
   const sampleERC20 = await new web3.eth.Contract(SampleERC20.abi, {
     data: SampleERC20.bytecode,
     from: owner,
-    gas: 4712388,
     gasPrice
   });
 
-  const res = await sampleERC20.deploy().send();
-  return res;
+  return sendWithEstimateGas(sampleERC20.deploy());
 }
 
-async function deployHomeBridge(web3, owner, validators) {
+async function deployHomeBridge(web3, owner, validators, gasPrice) {
   const homeBridge = await new web3.eth.Contract(HomeBridge.abi, {
     data: HomeBridge.bytecode,
-    gas: 4712388,
-    gasPrice: options.gasPrice.home,
+    gasPrice,
     from: owner
   });
 
-  const res = await homeBridge
-    .deploy({ arguments: [options.requiredValidators, validators] })
-    .send({ from: owner });
+  const call = homeBridge.deploy({ arguments: [config.requiredValidators, validators] });
+  const res = await sendWithEstimateGas(call);
 
   console.log("HomeBridge", res._address);
   return res;
 }
 
-async function deployForeignBridge(web3, owner, validators) {
+async function deployForeignBridge(web3, owner, validators, gasPrice) {
   const foreignBridge = await new web3.eth.Contract(ForeignBridge.abi, {
     data: ForeignBridge.bytecode,
-    gas: 4712388,
-    gasPrice: options.gasPrice.foreign,
+    gasPrice,
     from: owner
   });
 
-  const res = await foreignBridge
-    .deploy({ arguments: [options.requiredValidators, validators] })
-    .send({ from: owner });
+  const call = foreignBridge.deploy({ arguments: [config.requiredValidators, validators] });
+  const res = await sendWithEstimateGas(call);
 
   console.log("ForeignBridge", res._address);
   return res;
 }
 
 async function registerToken(homeToken, foreignToken, foreignBridge, owner) {
-  // The bridge must have ownership of the foreign token
-  await foreignToken.methods.transferOwnership(foreignBridge._address).send({ from: owner });
+  let call;
 
-  await foreignBridge.methods.registerToken(homeToken._address, foreignToken._address).send({ from: owner });
+  // The bridge must have ownership of the foreign token
+  call = await foreignToken.methods.transferOwnership(foreignBridge._address);
+  await sendWithEstimateGas(call, owner);
+
+  call = await foreignBridge.methods.registerToken(homeToken._address, foreignToken._address);
+  await sendWithEstimateGas(call, owner);
+
   console.log("Token registered");
 }
 
@@ -83,27 +70,34 @@ function seedToWallet(seed) {
   return Wallet.fromPrivateKey(privateKey);
 }
 
-async function main() {
-  const homeWeb3 = new Web3(options.providers.home);
-  const foreignWeb3 = new Web3(options.providers.foreign);
+const configToWeb3 = ({ seed, url }) => new Web3(new HDWalletProvider(seed, url));
 
-  // Create validator keys
-  const validators = options.seeds
+async function main() {
+  const homeWeb3 = configToWeb3(config.providers.home);
+  const foreignWeb3 = configToWeb3(config.providers.foreign);
+
+  const [homeGasPrice, foreignGasPrice] = await Promise.all([
+    homeWeb3.eth.getGasPrice(),
+    foreignWeb3.eth.getGasPrice()
+  ]);
+
+  // Create validator keys from provided seeds
+  const validators = config.validatorSeeds
   .map(seedToWallet)
   .map(wallet => wallet.getAddressString())
 
-  const alice = (await homeWeb3.eth.getAccounts())[0];
+  // Owners of bridge contracts
   const homeOwner = (await homeWeb3.eth.getAccounts())[0];
   const foreignOwner = (await foreignWeb3.eth.getAccounts())[0];
 
-  const homeToken = await deployERC20(homeWeb3, homeOwner, options.gasPrice.home);
+  const homeToken = await deployERC20(homeWeb3, homeOwner, homeGasPrice);
   console.log("Home SampleERC20", homeToken._address);
 
-  const foreignToken = await deployERC20(foreignWeb3, foreignOwner, options.gasPrice.foreign);
+  const foreignToken = await deployERC20(foreignWeb3, foreignOwner, foreignGasPrice);
   console.log("Foreign SampleERC20", foreignToken._address);
 
-  const homeBridge = await deployHomeBridge(homeWeb3, homeOwner, validators);
-  const foreignBridge = await deployForeignBridge(foreignWeb3, foreignOwner, validators);
+  const homeBridge = await deployHomeBridge(homeWeb3, homeOwner, validators, homeGasPrice);
+  const foreignBridge = await deployForeignBridge(foreignWeb3, foreignOwner, validators, foreignGasPrice);
 
   await registerToken(homeToken, foreignToken, foreignBridge, foreignOwner);
 }

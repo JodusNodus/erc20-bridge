@@ -1,0 +1,14 @@
+{
+  "requiredValidators": 2,
+  "validatorSeeds": ["validator1", "validator2", "validator3"],
+  "providers": {
+    "home": {
+      "seed": "this is a real seed",
+      "url": "http://localhost:7545"
+    },
+    "foreign": {
+      "seed": "this is a real seed",
+      "url": "https://mintnet.settlemint.com"
+    }
+  }
+}
