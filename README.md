@@ -24,12 +24,12 @@ The bridge transfers any ERC20 token to a corresponding token on another chain.
 - __SampleERC20__: ERC20 contract that is deployed on both chains.
 
 ## Assumptions on trust
-- The authorized validator nodes act in __Alice__'s best intrest.
+- The authorized validator nodes acts in __Alice__'s best intrest.
 - The minimum threshold of validators is always online to process their request.
 
 ### Setup
 - Each __Validator__ node must have a seed corresponding to an account. These accounts need enough gas on both chains to send transactions on the private chain (ex. in case of mintnet this doesn't apply).
-- __HomeBridge__ and __ForeignBridge__ must be deployed on their chains and suplied with the __Validator__ addresses and the threshold of signatures required for granting a request.
+- __HomeBridge__ and __ForeignBridge__ must be deployed on their respective chains and suplied with the __Validator__ addresses and the threshold of signatures required for granting a request.
 - The __SampleERC20__ must be deployed on both the home and foreign chain.
 - __ForeignBridge__ should be given ownership of __SampleERC20__ on the foreign chain.
 - Register the __SampleERC20__ token on __ForeignBridge__.
