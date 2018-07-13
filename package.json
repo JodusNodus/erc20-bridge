@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "truffle test || exit 0",
+    "compile": "truffle compile",
     "deploy": "node scripts/deploy.js",
     "travis-deploy-once": "travis-deploy-once",
     "semantic-release": "semantic-release",
