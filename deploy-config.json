@@ -1,13 +1,17 @@
 {
   "requiredValidators": 2,
-  "validatorSeeds": ["validator1", "validator2", "validator3"],
+  "validatorSeeds": [
+    "gallery item fork uncover olympic ostrich kangaroo announce flag achieve cause sick exact purpose cost",
+    "fancy brain zone inside bargain bomb own popular soldier front body hint toddler inch soldier",
+    "auction valley clump juice narrow unknown among globe volume neck away patient grace husband army"
+  ],
   "providers": {
     "home": {
-      "seed": "this is a real seed",
-      "url": "http://localhost:7545"
+      "seed": "puppy firm kit dizzy jelly script update alter ring rail zero gasp crawl meat know",
+      "url": "http://localhost:8545"
     },
     "foreign": {
-      "seed": "this is a real seed",
+      "seed": "curve strategy green rare mechanic cruise great body spoil old job rent tube can circle",
       "url": "https://mintnet.settlemint.com"
     }
   }

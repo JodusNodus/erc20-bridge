@@ -22,6 +22,7 @@
   "license": "MIT",
   "dependencies": {
     "bignumber.js": "^7.2.1",
+    "bip39": "^2.5.0",
     "eip820": "0.0.20",
     "ethereumjs-abi": "^0.6.5",
     "ethereumjs-tx": "^1.3.4",

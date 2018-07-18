@@ -1,7 +1,8 @@
 const Web3 = require("web3");
 const Wallet = require('ethereumjs-wallet');
 const hdkey = require('ethereumjs-wallet/hdkey');
-const HDWalletProvider = require('truffle-hdwallet-provider')
+const PrivateKeyProvider = require('truffle-privatekey-provider')
+const bip39 = require('bip39')
 
 const SampleERC20 = require("../build/contracts/SampleERC20.json");
 const HomeBridge = require("../build/contracts/HomeBridge.json");
@@ -66,11 +67,15 @@ async function registerToken(homeToken, foreignToken, foreignBridge, owner) {
 }
 
 function seedToWallet(seed) {
+  seed = bip39.mnemonicToSeed(seed);
   const privateKey = hdkey.fromMasterSeed(seed)._hdkey._privateKey;
   return Wallet.fromPrivateKey(privateKey);
 }
 
-const configToWeb3 = ({ seed, url }) => new Web3(new HDWalletProvider(seed, url));
+const configToWeb3 = ({ seed, url }) => {
+  const privateKey = seedToWallet(seed).getPrivateKeyString().slice(2);
+  return new Web3(new PrivateKeyProvider(privateKey, url));
+}
 
 async function main() {
   const homeWeb3 = configToWeb3(config.providers.home);
@@ -89,6 +94,10 @@ async function main() {
   // Owners of bridge contracts
   const homeOwner = (await homeWeb3.eth.getAccounts())[0];
   const foreignOwner = (await foreignWeb3.eth.getAccounts())[0];
+
+  console.log("Home owner", homeOwner);
+  console.log("Foreign owner", foreignOwner);
+  console.log("Validators", validators);
 
   const homeToken = await deployERC20(homeWeb3, homeOwner, homeGasPrice);
   console.log("Home SampleERC20", homeToken._address);
