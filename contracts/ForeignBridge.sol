@@ -18,8 +18,8 @@ contract ForeignBridge is Ownable, Validatable {
     address[] public registeredTokens;
 
 	event TokenAdded(address _mainToken,address _sideToken);
-	event MintRequestSigned(bytes32 _mintRequestsHash, bytes32 _transactionHash,address _mainToken, address _recipient,uint256 _amount,uint8 _requiredSignatures,uint8 _signatureCount,bytes32 _signRequestHash);
-	event MintRequestExecuted(bytes32 _mintRequestsHash, bytes32 _transactionHash,address _mainToken, address _recipient,uint256 _amount);
+	event MintRequestSigned(bytes32 _mintRequestsHash, bytes32 indexed _transactionHash,address _mainToken, address _recipient,uint256 _amount,uint8 _requiredSignatures,uint8 _signatureCount,bytes32 _signRequestHash);
+	event MintRequestExecuted(bytes32 _mintRequestsHash, bytes32 indexed _transactionHash,address _mainToken, address _recipient,uint256 _amount);
 
 	event WithdrawRequest(address _to,uint256 _amount,bytes32 _withdrawhash);
 	event WithdrawRequestSigned(bytes32 _withdrawRequestsHash, bytes32 _transactionHash,address _mainToken, address _recipient,uint256 _amount,uint256 _withdrawBlock,address _signer, uint8 _v, bytes32 _r, bytes32 _s);
