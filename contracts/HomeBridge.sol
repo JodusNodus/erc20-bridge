@@ -1,15 +1,18 @@
 pragma solidity ^0.4.18;
 
-import 'openzeppelin-solidity/contracts/token/ERC20/ERC20Basic.sol';
-import 'openzeppelin-solidity/contracts/ownership/Ownable.sol';
-import 'openzeppelin-solidity/contracts/math/SafeMath.sol';
+import './external/Ownable.sol';
+import './external/SafeMath.sol';
+import './external/MiniMeToken.sol';
+import './DTXToken.sol';
 
 import './Validatable.sol';
 
-contract HomeBridge is Validatable {
+contract HomeBridge is Ownable, Validatable, ApproveAndCallFallBack {
 	using SafeMath for uint256;
 
 	mapping(bytes32=>bool) usedHashes;
+
+	event DepositReceived(address indexed _from, uint256 _amount, address _mainToken, bytes _data);
 	
 	function HomeBridge(uint8 _requiredValidators,address[] _initialValidators) Validatable(_requiredValidators,_initialValidators) public {
 
@@ -53,9 +56,6 @@ contract HomeBridge is Validatable {
 
 		assert(_amount >= 0);
 
-		// the time-lock should have passed
-		// assert(_withdrawblock <= block.number);		
-
 		// verify the provided signatures
 		assert(_v.length > 0);
 		assert(_v.length == _r.length);
@@ -64,9 +64,19 @@ contract HomeBridge is Validatable {
 		// verify if the threshold of required signatures is met
 		assert(checkValidations(hash,_v.length,_v,_r,_s) >= requiredValidators);
 		// ERC-20 transfer
-		ERC20Basic(_token).transfer(_recipient, _amount);
+		DTXToken(_token).transfer(_recipient, _amount);
 	}	
 
+    function receiveApproval(address from, uint256 _amount, address _token, bytes _data) public {
+		assert(from != 0x0);
+		assert(_token != 0x0);
+		assert(_amount > 0);
+
+        require(DTXToken(_token).allowance(from, address(this)) >= _amount);
+		DTXToken(_token).transferFrom(from, address(this), _amount);
+
+		emit DepositReceived(from, _amount, _token, _data);
+	}
 
 }
 

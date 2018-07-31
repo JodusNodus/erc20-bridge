@@ -1,9 +1,8 @@
-pragma solidity ^0.4.18;
+pragma solidity ^0.4.19;
 
-import 'openzeppelin-solidity/contracts/ownership/Ownable.sol';
-import 'openzeppelin-solidity/contracts/token/ERC20/BurnableToken.sol';
-import 'openzeppelin-solidity/contracts/token/ERC20/MintableToken.sol';
+import './external/Ownable.sol';
 import './Validatable.sol';
+import './DTXToken.sol';
 
 contract ForeignBridge is Ownable, Validatable {
 
@@ -21,7 +20,6 @@ contract ForeignBridge is Ownable, Validatable {
 	event MintRequestSigned(bytes32 _mintRequestsHash, bytes32 indexed _transactionHash,address _mainToken, address _recipient,uint256 _amount,uint8 _requiredSignatures,uint8 _signatureCount,bytes32 _signRequestHash);
 	event MintRequestExecuted(bytes32 _mintRequestsHash, bytes32 indexed _transactionHash,address _mainToken, address _recipient,uint256 _amount);
 
-	event WithdrawRequest(address _to,uint256 _amount,bytes32 _withdrawhash);
 	event WithdrawRequestSigned(bytes32 _withdrawRequestsHash, bytes32 _transactionHash,address _mainToken, address _recipient,uint256 _amount,uint256 _withdrawBlock,address _signer, uint8 _v, bytes32 _r, bytes32 _s);
 	event WithdrawRequestGranted(bytes32 _withdrawRequestsHash, bytes32 _transactionHash,address _mainToken, address _recipient,uint256 _amount,uint256 _withdrawBlock);
 
@@ -35,10 +33,10 @@ contract ForeignBridge is Ownable, Validatable {
 		assert(_mainToken != 0x0);
 		assert(_foreignToken != 0x0);
 
-		Ownable t = Ownable(_foreignToken);
+		DTXToken t = DTXToken(_foreignToken);
 
 		assert(address(t) != 0x0);
-		assert(t.owner() == address(this));
+		assert(t.controller() == address(this));
 
 		tokenMap[_mainToken] = t;
 		registeredTokens.push(_mainToken);
@@ -74,7 +72,7 @@ contract ForeignBridge is Ownable, Validatable {
 			emit MintRequestSigned(reqHash, _transactionHash, _mainToken,  _recipient, _amount, requiredValidators, requests[reqHash], signRequestHash);
 		} else {
 			requestsDone[reqHash] = true;
-			MintableToken(tokenMap[_mainToken]).mint(_recipient,_amount);
+			DTXToken(tokenMap[_mainToken]).generateTokens(_recipient,_amount);
 			emit MintRequestExecuted(reqHash,_transactionHash, tokenMap[_mainToken],  _recipient, _amount);
 		}
 	}
@@ -107,7 +105,7 @@ contract ForeignBridge is Ownable, Validatable {
 			requestsDone[reqHash] = true;
 
 			// Burn the tokens we received
-			BurnableToken(tokenMap[_mainToken]).burn(_amount);
+			DTXToken(tokenMap[_mainToken]).destroyTokens(address(this), _amount);
 
 			emit WithdrawRequestGranted(reqHash, _transactionHash, _mainToken, _recipient, _amount, _withdrawBlock);
 		}

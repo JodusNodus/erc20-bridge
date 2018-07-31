@@ -1,7 +1,7 @@
 const Web3 = require("web3");
 const HDWalletProvider = require("truffle-hdwallet-provider");
 
-const SampleERC20 = require("../build/contracts/SampleERC20.json");
+const DTXToken = require("../build/contracts/DTXToken.json");
 const HomeBridge = require("../build/contracts/HomeBridge.json");
 const ForeignBridge = require("../build/contracts/ForeignBridge.json");
 
@@ -14,13 +14,15 @@ async function sendWithEstimateGas(call, owner, web3) {
 }
 
 async function deployERC20(web3, owner, gasPrice) {
-  const sampleERC20 = await new web3.eth.Contract(SampleERC20.abi, {
-    data: SampleERC20.bytecode,
+  const sampleERC20 = await new web3.eth.Contract(DTXToken.abi, {
+    data: DTXToken.bytecode,
     from: owner,
     gasPrice
   });
 
-  return sendWithEstimateGas(sampleERC20.deploy(), owner, web3);
+  return sendWithEstimateGas(sampleERC20.deploy({
+    arguments: [0x0]
+  }), owner, web3);
 }
 
 async function deployHomeBridge(web3, owner, validators, gasPrice) {
@@ -59,8 +61,10 @@ async function registerToken(homeToken, foreignToken, foreignBridge, owner, web3
   let call;
 
   // The bridge must have ownership of the foreign token
-  call = await foreignToken.methods.transferOwnership(foreignBridge._address);
+  call = await foreignToken.methods.changeController(foreignBridge._address);
   await sendWithEstimateGas(call, owner, web3);
+
+  console.log("Foreign DTX controller set");
 
   call = await foreignBridge.methods.registerToken(
     homeToken._address,
@@ -101,11 +105,11 @@ async function main() {
   console.log("Validators", validators);
 
   const homeToken = await deployERC20(homeWeb3, homeOwner, homeGasPrice);
-  console.log("Home SampleERC20", homeToken._address);
+  console.log("Home DTXToken", homeToken._address);
 
   if (config.testAccountSeed) {
     const addr = seedToAddress(config.testAccountSeed);
-    await homeToken.methods.mint(addr, 10000000).send({ from: homeOwner });
+    await homeToken.methods.generateTokens(addr, 10000000).send({ from: homeOwner });
   }
 
   const foreignToken = await deployERC20(
@@ -113,7 +117,7 @@ async function main() {
     foreignOwner,
     foreignGasPrice
   );
-  console.log("Foreign SampleERC20", foreignToken._address);
+  console.log("Foreign DTXToken", foreignToken._address);
 
   const homeBridge = await deployHomeBridge(
     homeWeb3,
