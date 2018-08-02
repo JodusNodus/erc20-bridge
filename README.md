@@ -10,6 +10,10 @@ The bridge transfers any ERC20 token to a corresponding token on another chain.
 - `npm run compile`
 - `npm run deploy`
 
+## TODO
+- Integrate deployment with Mainnet and Databroker Token migrations (deployment script only works for generic erc20 tokens).
+- Write unit tests for contracts (integration test reside in the `erc20-bridge-validator` repo).
+
 # Documentation
 
 ## Scenario
