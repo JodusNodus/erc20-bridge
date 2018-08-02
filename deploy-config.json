@@ -9,7 +9,7 @@
   "providers": {
     "home": {
       "seed": "puppy firm kit zero jelly script update alter ring rail zero gasp crawl meat know",
-      "url": "https://ropsten.infura.io/v3/ff14ab704c0c4c2eb1238a0023b9e6cd"
+      "url": "http://localhost:8545"
     },
     "foreign": {
       "seed": "strategy curve flag rare mechanic cruise great body spoil old job rent tube can circle",

@@ -1,11 +1,11 @@
 pragma solidity ^0.4.19;
 
-import "./external/MiniMeToken.sol";
+import "./MiniMeToken.sol";
 
 
-contract DTXToken is MiniMeToken {
+contract HomeDTXToken is MiniMeToken {
 
-  function DTXToken(address _tokenFactory) public MiniMeToken (
+  function HomeDTXToken(address _tokenFactory) public MiniMeToken (
     _tokenFactory,
     0x0,                    // no parent token
     0,                      // no snapshot block number from parent

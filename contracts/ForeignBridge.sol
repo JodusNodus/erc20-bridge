@@ -2,7 +2,7 @@ pragma solidity ^0.4.19;
 
 import './external/Ownable.sol';
 import './Validatable.sol';
-import './DTXToken.sol';
+import "@settlemint/solidity-mint/contracts/marketplaces/tokensystem/interfaces/IToken.sol";
 
 contract ForeignBridge is Ownable, Validatable {
 
@@ -33,10 +33,9 @@ contract ForeignBridge is Ownable, Validatable {
 		assert(_mainToken != 0x0);
 		assert(_foreignToken != 0x0);
 
-		DTXToken t = DTXToken(_foreignToken);
+		IToken t = IToken(_foreignToken);
 
 		assert(address(t) != 0x0);
-		assert(t.controller() == address(this));
 
 		tokenMap[_mainToken] = t;
 		registeredTokens.push(_mainToken);
@@ -72,7 +71,7 @@ contract ForeignBridge is Ownable, Validatable {
 			emit MintRequestSigned(reqHash, _transactionHash, _mainToken,  _recipient, _amount, requiredValidators, requests[reqHash], signRequestHash);
 		} else {
 			requestsDone[reqHash] = true;
-			DTXToken(tokenMap[_mainToken]).generateTokens(_recipient,_amount);
+			IToken(tokenMap[_mainToken]).mint(_recipient,_amount);
 			emit MintRequestExecuted(reqHash,_transactionHash, tokenMap[_mainToken],  _recipient, _amount);
 		}
 	}
@@ -105,7 +104,7 @@ contract ForeignBridge is Ownable, Validatable {
 			requestsDone[reqHash] = true;
 
 			// Burn the tokens we received
-			DTXToken(tokenMap[_mainToken]).destroyTokens(address(this), _amount);
+			IToken(tokenMap[_mainToken]).burn(address(this), _amount);
 
 			emit WithdrawRequestGranted(reqHash, _transactionHash, _mainToken, _recipient, _amount, _withdrawBlock);
 		}

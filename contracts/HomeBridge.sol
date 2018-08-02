@@ -3,7 +3,6 @@ pragma solidity ^0.4.18;
 import './external/Ownable.sol';
 import './external/SafeMath.sol';
 import './external/MiniMeToken.sol';
-import './DTXToken.sol';
 
 import './Validatable.sol';
 
@@ -64,7 +63,7 @@ contract HomeBridge is Ownable, Validatable, ApproveAndCallFallBack {
 		// verify if the threshold of required signatures is met
 		assert(checkValidations(hash,_v.length,_v,_r,_s) >= requiredValidators);
 		// ERC-20 transfer
-		DTXToken(_token).transfer(_recipient, _amount);
+		MiniMeToken(_token).transfer(_recipient, _amount);
 	}	
 
     function receiveApproval(address from, uint256 _amount, address _token, bytes _data) public {
@@ -72,8 +71,8 @@ contract HomeBridge is Ownable, Validatable, ApproveAndCallFallBack {
 		assert(_token != 0x0);
 		assert(_amount > 0);
 
-        require(DTXToken(_token).allowance(from, address(this)) >= _amount);
-		DTXToken(_token).transferFrom(from, address(this), _amount);
+        require(MiniMeToken(_token).allowance(from, address(this)) >= _amount);
+		MiniMeToken(_token).transferFrom(from, address(this), _amount);
 
 		emit DepositReceived(from, _amount, _token, _data);
 	}

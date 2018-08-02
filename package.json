@@ -37,7 +37,8 @@
     "truffle-flattener": "^1.2.5",
     "truffle-hdwallet-provider": "0.0.5",
     "truffle-privatekey-provider": "^0.1.0",
-    "web3": "^1.0.0-beta.34"
+    "web3": "^1.0.0-beta.34",
+    "@settlemint/solidity-mint": "^1.17.6"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^2.0.2",
